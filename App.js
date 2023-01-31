@@ -15,6 +15,8 @@ import {
   Text,
   View,
 } from 'react-native';
+import Tab1Content from './component/Tab1Content';
+import Tab2Content from './component/Tab2Content';
 
 const App = () => {
 
@@ -23,20 +25,6 @@ const App = () => {
 
   function updateCount() {
     setCount(count + 1);
-  }
-
-  const Tab1Content = () => {
-    return <Text>
-      1111111 {"\n"}
-      Tab 1 content, button count {count}
-    </Text>
-  }
-  const Tab2Content = () => {
-    return <Text>
-      2222222222222 {"\n"}
-      2222222222222 {"\n"}
-      Tab 2 content, button count {count}
-    </Text>
   }
 
   return (
@@ -57,10 +45,16 @@ const App = () => {
             <Tab.Screen
               navigationKey={count.toString()}
               name="tab1"
+              initialParams={{
+                count: count,
+              }}
               component={Tab1Content} />
             <Tab.Screen
               navigationKey={count.toString()}
               name="tab2"
+              initialParams={{
+                count: count,
+              }}
               component={Tab2Content} />
           </Tab.Navigator>
         </View>
